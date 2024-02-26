@@ -42,7 +42,7 @@ socket.on("message", async (data) => {
 });
 
 socket.on("alert", async (data) => {
-    alert("${data.username} Joined");
+    alert(`${data.username} Joined`);
     notify.style.display = "none";
     startButton.style.display = "block";
     hangupButton.style.display = "block";
