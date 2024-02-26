@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Calling App</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>testing with WebRTC</h1>
-    <input id="email" type="email" placeholder="Enter email">
-    <button id="enter-button">enter</button>
-    <button id="call-button">Call The another party</button>
-    <button id="start-button">Start streaming</button>
-    <video id="video" autoplay></video>
-    <script src="/socket.io/socket.io.js"></script>
+<div class="container">
+  <div class="login-page" id="loginPage">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="roomId">RoomId:</label>
+        <input type="text" id="roomId" name="roomId" required>
+      </div>
+      <button id="submit" type="submit">Login</button>
+    </form>
+  </div>
+  
+  <div class="videoCall" id="videoCall">
+    <div class="video-container">
+      <video id="localVideo" autoplay muted></video>
+    </div>
+    <div class="video-container">
+      <video id="remoteVideo" autoplay muted></video>
+    </div>
+    <div class="controls">
+      <div id="notify">
+        <h1>No one is joined !!!</h1>
+      </div>
+      <button id="startButton">Start Call</button>
+      <button id="hangupButton">Hang Up</button>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
     <!-- <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script> -->
     <script src="app.js"></script>
 </body>

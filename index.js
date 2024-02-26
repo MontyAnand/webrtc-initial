@@ -1,5 +1,5 @@
 const express = require("express");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 // const NodeCache = require( "node-cache" );
 // const liveRooms = new NodeCache({ stdTTL: 60, checkperiod: 120 });
 const path = require('path');
