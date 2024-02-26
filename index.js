@@ -26,13 +26,14 @@ const io = new Server(server, {
     console.log("New connection");
     socket.emit("message", "Hello client");
 
-    socket.on("join",(room)=>{
-      socket.join(room);
-      if(set.has(room)){
-        socket.to(room).emit("alert", socket.id);
+    socket.on("join",(data)=>{
+      console.log(data.room,data.username);
+      socket.join(data.room);
+      if(set.has(data.room)){
+        socket.to(data.room).emit("alert", data);
       }
       else {
-        set.add(room);
+        set.add(data.room);
       }
     });
 

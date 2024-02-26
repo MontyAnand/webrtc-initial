@@ -42,7 +42,7 @@ socket.on("message", async (data) => {
 });
 
 socket.on("alert", async (data) => {
-    alert("joined");
+    alert("{data.username} Joined");
     notify.style.display = "none";
     startButton.style.display = "block";
     hangupButton.style.display = "block";
@@ -78,7 +78,7 @@ form.onsubmit = (e) => {
     const videoContainer = document.getElementById("videoCall");
     loginContainer.style.display = "none";
     videoContainer.style.display = "table";
-    socket.emit("join", room);
+    socket.emit("join", {room:room, username:id});
 }
 
 startButton.addEventListener("click", (e) => {
